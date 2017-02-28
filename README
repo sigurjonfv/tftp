@@ -1,0 +1,16 @@
+T-409-TSAM-2016
+Computer Networks
+Programming Assignment 1
+– Trivial File Transfer Protocol
+
+Date: 14/09/2016
+Authors: Arnar Bjarni Arnarson, Álfur Birkir Bjarnason, Sigurjón Freyr Viktorsson
+e-mail: arnar14@ru.is, alfur14@ru.is, sigurjon14@ru.is
+
+### Implementation Details ###
+* Using TFTP we have written a simple file transfer server.
+* To make sure we are not accessing unauthorized files (files outside the given directory) we resolved the directory path and the filepath and make sure the directory path is a prefix of the file path.
+* We deny write requests since this server does not allow uploads.
+* An erroneous request results in writing out the error and terminating the request, making the server ready for a new request.
+* A request that does not have op_code 1 or 2 we reply with illegal_op_error.
+* If we receive an error from recvfrom function we just terminate the server because we can't be sure what's going on.
